@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+</head>
+<body>
+    <h1>Manage Products</h1>
+
+    <!-- Admin Home Button -->
+    <a href="{% url 'admin_home' %}">Admin Home</a>
+
+    <!-- Logout Button -->
+    <a href="{% url 'custom-logout' %}">Logout</a>
+
+    <a href="{% url 'add_product' %}">Add New Product</a>
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.name }}</strong> - ${{ product.price }}
+                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                <a href="{% url 'delete_product' product.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}View Products{% endblock %}
+{% block content %}
+<h2>Products</h2>
+<ul>
+    {% for product in products %}
+    <li>
+        <strong>{{ product.name }}</strong> - ${{ product.price }}
+        <p>{{ product.description }}</p>
+        <p>Average Rating: {{ product.average_rating }}</p>
+        <a href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+        <a href="{% url 'rate_product' product.id %}">Rate Product</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

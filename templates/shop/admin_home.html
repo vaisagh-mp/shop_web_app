@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+</head>
+<body>
+    <h1>Welcome, Admin!</h1>
+    
+    <h2>Manage Products</h2>
+    <ul>
+        <li><a href="{% url 'add_product' %}">Add Product</a></li>
+        <li><a href="{% url 'view_all_products' %}">View All Products</a></li>  <!-- New link -->
+    </ul>
+    
+    <h2>Orders</h2>
+    <ul>
+        <li><a href="{% url 'view_orders' %}">View All Orders</a></li>
+    </ul>
+
+    <a href="{% url 'custom-logout' %}">Logout</a>
+
+
+    <footer>
+        <p>Some footer content</p>
+    </footer>
+</body>
+</html>

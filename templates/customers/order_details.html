@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Order #{{ order.id }} Details{% endblock %}
+
+{% block content %}
+    <h2>Order #{{ order.id }} Details</h2>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+    <p><strong>Product:</strong> {{ order.product.name }}</p>
+    <p><strong>Placed on:</strong> {{ order.created_at|date:"F j, Y" }}</p>
+    <a href="{% url 'view_orders_customer' %}">Back to Orders</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}View Orders{% endblock %}
+
+{% block content %}
+    <h2>Your Orders</h2>
+    <ul>
+        {% for order in orders %}
+            <li>
+                <strong>Order #{{ order.id }}</strong> - Status: {{ order.status }} - Placed on: {{ order.created_at|date:"F j, Y" }}
+                <a href="{% url 'view_order_details' order.id %}">View Details</a>
+            </li>
+        {% empty %}
+            <p>You have no orders yet.</p>
+        {% endfor %}
+    </ul>
+
+    <!-- Button for Home Page -->
+    <a href="{% url 'customer_home' %}" class="btn btn-primary">Back to Home</a>
+
+{% endblock %}
